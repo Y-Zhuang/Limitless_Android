@@ -1,4 +1,4 @@
-package com.zhuang.limitless_android.utils;
+package com.zhuang.limitless_android.util;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -12,13 +12,22 @@ import com.zhuang.limitless_android.R;
 /**
  * 得到网络状态的工具类
  */
-public class NetStateUtils {
+/**
+ * @Package     : com.zhuang.limitless_android.util
+ * @ClassName   : NetStateUtil
+ * @Description : 获取网络状态
+ * @author      : Zhuang
+ * @date        : 2019-12-02 14:20
+ */
+public class NetStateUtil {
 
     /**
-     * 判断网络连接是否已开
-     *
-     * @return false 无网络 true 有网络
-     * */
+     * @FunctionName : isConn
+     * @Description  : 判断网络连接是否已开
+     * @author       : Zhuang
+     * @param        : context 上下文
+     * @return       : boolean 返回网络状态
+     */
     public static boolean isConn(Context context) {
         boolean bisConnFlag = false;
         ConnectivityManager conManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -30,9 +39,11 @@ public class NetStateUtils {
     }
 
     /**
-     * 当判断当前手机没有网络时选择是否打开网络设置
-     *
-     * @param context
+     * @FunctionName : showNoNetWorkDlg
+     * @Description  : 判断当前手机没有网络时选择是否打开网络设置
+     * @author       : Zhuang
+     * @param        : context 上下文
+     * @return       : void
      */
     public static void showNoNetWorkDlg(final Context context) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

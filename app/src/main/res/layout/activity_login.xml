@@ -3,10 +3,45 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="20sp"
-        android:text="Login_Activity"/>
+
+    <FrameLayout
+            android:id="@+id/login_reg_fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/btn_ll">
+    </FrameLayout>
+
+    <LinearLayout
+            android:id="@+id/btn_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="110dp"
+            android:layout_marginBottom="70dp"
+            android:layout_marginLeft="110dp"
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/shape_btn_ll_radius">
+        <Button
+                android:id="@+id/login_Btn"
+                android:textSize="15sp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/login_text"
+                android:background="@drawable/shape_login_btn_radius"/>
+
+        <Button
+                android:id="@+id/reg_Btn"
+                android:textSize="15sp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="20dp"
+                android:text="@string/reg_text"
+                android:background="@drawable/shape_login_btn_radius"/>
+
+    </LinearLayout>
+
 </RelativeLayout>

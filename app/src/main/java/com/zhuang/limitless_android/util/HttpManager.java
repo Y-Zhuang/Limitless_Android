@@ -1,4 +1,4 @@
-package com.zhuang.limitless_android.utils;
+package com.zhuang.limitless_android.util;
 
 import android.content.Context;
 import com.franmontiel.persistentcookiejar.PersistentCookieJar;
@@ -10,14 +10,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * OkHttp工具类
+ * @Package     : com.zhuang.limitless_android.util
+ * @ClassName   : HttpManager
+ * @Description : OkHttp管理类
+ * @author      : Zhuang
+ * @date        : 2019-12-02 14:20
  */
-public class HttpUtils {
+public class HttpManager {
     private OkHttpClient mOkHttpClient;
-    private static HttpUtils mHttpUtils;
+    private static HttpManager mHttpManager;
     private Context context;
 
-    private HttpUtils(Context context) {
+    private HttpManager(Context context) {
         this.context = context;
         mOkHttpClient = new OkHttpClient.Builder()
                 .cookieJar(new PersistentCookieJar(new SetCookieCache(), new SharedPrefsCookiePersistor(context)))
@@ -26,18 +30,20 @@ public class HttpUtils {
                 .build();
     }
 
-    public static HttpUtils getInstance(Context context) {
-        if (mHttpUtils == null) {
-            mHttpUtils = new HttpUtils(context);
+    public static HttpManager getInstance(Context context) {
+        if (mHttpManager == null) {
+            mHttpManager = new HttpManager(context);
         }
-        return mHttpUtils;
+        return mHttpManager;
     }
 
     /**
-     * GET请求
-     *
-     * @param url      请求地址
-     * @param callback 回调对象
+     * @FunctionName : get
+     * @Description  : GET请求
+     * @author       : Zhuang
+     * @param        : url 请求地址
+     * @param        : callback 回调对象
+     * @return       : void
      */
     public void get(String url, Callback callback) {
         Request.Builder builder = new Request.Builder().url(url);
@@ -48,11 +54,13 @@ public class HttpUtils {
     }
 
     /**
-     * POST请求
-     *
-     * @param url      请求地址
-     * @param param    请求参数
-     * @param callback 回调对象
+     * @FunctionName : post
+     * @Description  : POST请求
+     * @author       : Zhuang
+     * @param        : url 请求地址
+     * @param        : param 请求参数
+     * @param        : callback 结果回调
+     * @return       : void
      */
     public void post(String url, HashMap<String, String> param, Callback callback) {
         RequestBody requestBody = setParam(param).build();
@@ -65,10 +73,11 @@ public class HttpUtils {
     }
 
     /**
-     * 设置请求参数
-     *
-     * @param param 请求参数
-     * @return 返回表单数据
+     * @FunctionName : setParam
+     * @Description  : 设置POST传输数据
+     * @author       : Zhuang
+     * @param        : param 需传输的数据
+     * @return       : okhttp3.FormBody.Builder 返回表单数据
      */
     public FormBody.Builder setParam(HashMap<String, String> param) {
         FormBody.Builder formBody = new FormBody.Builder();

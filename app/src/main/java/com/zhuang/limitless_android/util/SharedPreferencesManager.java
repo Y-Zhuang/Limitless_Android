@@ -1,33 +1,40 @@
-package com.zhuang.limitless_android.utils;
+package com.zhuang.limitless_android.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.zhuang.limitless_android.config.AppConfig;
 
-import java.util.HashMap;
-
-public class SharedPreferencesUtils {
-    private static SharedPreferencesUtils preferencesUtils;
+/**
+ * @Package     : com.zhuang.limitless_android.util
+ * @ClassName   : SharedPreferencesManager
+ * @Description : SharedPreferences管理类
+ * @author      : Zhuang
+ * @date        : 2019-12-02 14:20
+ */
+public class SharedPreferencesManager {
+    private static SharedPreferencesManager preferencesUtils;
     private static SharedPreferences preferences;
     private static SharedPreferences.Editor editor;
 
-    private SharedPreferencesUtils(Context context) {
+    private SharedPreferencesManager(Context context) {
         preferences = context.getSharedPreferences(AppConfig.USER, Context.MODE_PRIVATE);
         editor = preferences.edit();
     }
 
-    public static SharedPreferencesUtils getInstance(Context context) {
+    public static SharedPreferencesManager getInstance(Context context) {
         if (preferencesUtils == null || preferences == null || editor == null) {
-            preferencesUtils = new SharedPreferencesUtils(context);
+            preferencesUtils = new SharedPreferencesManager(context);
         }
         return preferencesUtils;
     }
 
     /**
-     * 存储数据
-     *
-     * @param key    存储的键
-     * @param object 存储的值
+     * @FunctionName : put
+     * @Description  : 存储数据
+     * @author       : Zhuang
+     * @param        : key 存储的键
+     * @param        : object 存储的值
+     * @return       : void
      */
     public void put(String key, Object object) {
         if (object instanceof String) {
@@ -47,11 +54,12 @@ public class SharedPreferencesUtils {
     }
 
     /**
-     * 获取数据
-     *
-     * @param key           存储的键
-     * @param defaultObject 默认值
-     * @return 返回数据
+     * @FunctionName : get
+     * @Description  : 获取数据
+     * @author       : Zhuang
+     * @param        : key 获取的键
+     * @param        : defaultObject 默认值
+     * @return       : java.lang.Object 返回数据
      */
     public Object get(String key, Object defaultObject) {
         if (defaultObject instanceof String) {
@@ -70,9 +78,11 @@ public class SharedPreferencesUtils {
     }
 
     /**
-     * 清除某个键对应的值
-     *
-     * @param key 存储的键
+     * @FunctionName : remove
+     * @Description  : 清除某个键对应的值
+     * @author       : Zhuang
+     * @param        : key 清除数据的键
+     * @return       : void
      */
     public void remove(String key) {
         editor.remove(key);
@@ -80,7 +90,11 @@ public class SharedPreferencesUtils {
     }
 
     /**
-     * 清除所有数据
+     * @FunctionName : clear
+     * @Description  : 清除全部数据
+     * @author       : Zhuang
+     * @param        : void
+     * @return       : void
      */
     public void clear() {
         editor.clear();
@@ -88,10 +102,11 @@ public class SharedPreferencesUtils {
     }
 
     /**
-     * 查询某个键是否存在
-     *
-     * @param key 存储的键
-     * @return 返回结果
+     * @FunctionName : contain
+     * @Description  : 查询某个键是否存在
+     * @author       : Zhuang
+     * @param        : key 存储的键
+     * @return       : java.lang.Boolean 返回结果
      */
     public Boolean contain(String key) {
         return preferences.contains(key);

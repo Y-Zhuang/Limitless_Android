@@ -1,7 +1,14 @@
-package com.zhuang.limitless_android.model.entity;
+package com.zhuang.limitless_android.bean;
 
 import java.util.Arrays;
 
+/**
+ * @Package     : com.zhuang.limitless_android.bean
+ * @ClassName   : User
+ * @Description : User实体类
+ * @author      : Zhuang
+ * @date        : 2019-12-02 14:20
+ */
 public class User {
 
     public User() {

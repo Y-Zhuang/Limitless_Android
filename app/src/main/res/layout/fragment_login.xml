@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+    <TextView
+            android:id="@+id/title_tv"
+            android:textSize="30sp"
+            android:textStyle="italic"
+            android:textColor="@color/colorBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/login_text"/>
+
+    <EditText
+            android:id="@+id/userName_ev"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@mipmap/ic_name"
+            android:hint="@string/mane_hint"
+            android:lines="1"
+            android:maxLines="1"
+            android:inputType="text"
+            android:background="@drawable/layer_list_login_et_stroke"/>
+
+    <EditText
+            android:id="@+id/namePwd_ev"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableLeft="@mipmap/ic_pwd"
+            android:hint="@string/pwd_hint"
+            android:lines="1"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:background="@drawable/layer_list_login_et_stroke"/>
+
+</LinearLayout>

@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    
+    <!--白色-->
+    <color name="colorWhite">#ffffff</color>
+    <!--黑色-->
+    <color name="colorBlack">#000000</color>
+    <!--青色-->
+    <color name="colorBlue">#00BCD4</color>
+    <!--灰色-->
+    <color name="colorGray">#cccccc</color>
+    <!--深黑-->
+    <color name="colorDarkBlack">#666666</color>
 </resources>
