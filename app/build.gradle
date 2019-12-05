@@ -33,4 +33,7 @@ dependencies {
 
     //PersistentCookieJar
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+
+    //fastjson
+    implementation 'com.alibaba:fastjson:1.1.71.android'
 }

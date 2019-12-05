@@ -13,5 +13,10 @@ public class AppConfig {
     public static final int PORT = 8080;
 
     //判断是否登录
-    public static final String ISLOGIN = "/user/isLogin";
+    public static final String IS_LOGIN = "/user/isLogin";
+    //登录
+    public static final String LOGIN ="/user/loginUser";
+    //获取所有板块
+    public static final String GET_PLATE_ALL = "/admin/getUserAll";
+    public static final String ADMIN_LOGIN = "/admin/loginAdmin";
 }

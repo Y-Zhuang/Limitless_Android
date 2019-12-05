@@ -2,7 +2,12 @@ package com.zhuang.limitless_android.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import com.zhuang.limitless_android.R;
+
+import java.util.List;
 
 /**
  * @Package     : com.zhuang.limitless_android.base
@@ -37,7 +42,7 @@ public abstract class BaseActivityPresenter<T extends IBaseView> extends AppComp
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        if (viewDelegate == null) {
+        if (layoutView == null) {
             try {
                 layoutView = getLayoutViewClass().newInstance();
             } catch (InstantiationException e) {
@@ -46,6 +51,28 @@ public abstract class BaseActivityPresenter<T extends IBaseView> extends AppComp
                 throw new RuntimeException("create View error");
             }
         }
+    }
+
+    /**
+     * @FunctionName : switchFragment
+     * @Description  : fragment显示方法
+     * @author       : Zhuang
+     * @param        : frameLayout 在activity的frameLayout布局id
+     * @param        : fragment 要显示的fragment
+     * @return       : void
+     */
+    public void switchFragment(int frameLayout,Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        List<Fragment> childFragments = getSupportFragmentManager().getFragments();
+        for (Fragment childFragment : childFragments) {
+            fragmentTransaction.hide(childFragment);
+        }
+        if(!childFragments.contains(fragment)){
+            fragmentTransaction.add(frameLayout,fragment);
+        }else{
+            fragmentTransaction.show(fragment);
+        }
+        fragmentTransaction.commit();
     }
 
     @Override

@@ -33,4 +33,18 @@
             android:inputType="textPassword"
             android:background="@drawable/layer_list_login_et_stroke"/>
 
+    <EditText
+            android:id="@+id/confirmPwd_Ev"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:drawableStart="@mipmap/ic_pwd"
+            android:hint="@string/confirmPwd_hint"
+            android:lines="1"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:background="@drawable/layer_list_login_et_stroke"/>
+
 </LinearLayout>

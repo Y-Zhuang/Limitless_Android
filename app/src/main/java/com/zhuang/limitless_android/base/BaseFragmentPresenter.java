@@ -49,7 +49,7 @@ public abstract class BaseFragmentPresenter<T extends IBaseView> extends Fragmen
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
-        if (viewDelegate == null) {
+        if (layoutView == null) {
             try {
                 layoutView = getLayoutViewClass().newInstance();
             } catch (java.lang.InstantiationException e) {

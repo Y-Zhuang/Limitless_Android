@@ -7,4 +7,5 @@
     <string name="reg_text">注册</string>
     <string name="mane_hint">用户名</string>
     <string name="pwd_hint">密码</string>
+    <string name="confirmPwd_hint">确认密码</string>
 </resources>

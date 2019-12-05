@@ -81,7 +81,7 @@ public class HttpManager {
      */
     public FormBody.Builder setParam(HashMap<String, String> param) {
         FormBody.Builder formBody = new FormBody.Builder();
-        if (!param.isEmpty()) {
+        if (param != null && !param.isEmpty()) {
             for (Map.Entry<String, String> entry : param.entrySet()) {
                 formBody.add(entry.getKey(), entry.getValue());
             }

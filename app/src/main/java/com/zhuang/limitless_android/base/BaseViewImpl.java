@@ -2,6 +2,7 @@ package com.zhuang.limitless_android.base;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Looper;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -45,7 +46,13 @@ public abstract class BaseViewImpl implements IBaseView {
     }
 
     public void toast(CharSequence msg) {
-        Toast.makeText(rootView.getContext(), msg, Toast.LENGTH_SHORT).show();
+        if(Looper.getMainLooper() != Looper.myLooper()){
+            Looper.prepare();
+            Toast.makeText(rootView.getContext(), msg, Toast.LENGTH_SHORT).show();
+            Looper.loop();
+        }else {
+            Toast.makeText(rootView.getContext(), msg, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public <T extends Activity> T getActivity() {

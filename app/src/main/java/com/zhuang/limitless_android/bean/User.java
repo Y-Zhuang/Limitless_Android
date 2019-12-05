@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @Package     : com.zhuang.limitless_android.bean
  * @ClassName   : User
- * @Description : User实体类
+ * @Description : 用户实体类
  * @author      : Zhuang
  * @date        : 2019-12-02 14:20
  */
